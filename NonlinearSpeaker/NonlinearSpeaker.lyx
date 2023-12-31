@@ -1,0 +1,234 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-2
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Example nonlinear analysis of a moving coil; speaker
+\end_layout
+
+\begin_layout Author
+Stephen C.
+ Thompson
+\end_layout
+
+\begin_layout Affiliation
+Graduate Program in Acoustics, The Pennsylvania State University, University
+ Park, Pa.
+ 16802
+\end_layout
+
+\begin_layout Date
+November 27, 2022
+\end_layout
+
+\begin_layout Standard
+The information contained here uses Simscape components from the Foundation
+ Library and from the Acoustical Library for Simscape to model the performance
+ of a moving coil loudspeaker.
+ The components go beyond simple linear behavior to include several nonlnearitie
+s.
+\end_layout
+
+\begin_layout Standard
+As of the date of this report, the Acoustical Library fro Simscape includes
+ components that model the following nonlinearities
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+BL_of_x
+\family default
+ - models the fact that the electrical to mechanical Force Factor 
+\begin_inset Formula $BL$
+\end_inset
+
+ is a function of the speaker displacement 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+K_of_x
+\family default
+ - models the fact that the mechanical stiffness 
+\begin_inset Formula $K$
+\end_inset
+
+ of the speaker cone is a function of the speaker displacement 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+L_of_x
+\family default
+ - models the fact that the electrical inductance 
+\begin_inset Formula $L$
+\end_inset
+
+ of the speaker coil is a function of the speaker displacement 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+D_of_v
+\family default
+ - models the fact that the mechanical damping 
+\begin_inset Formula $D$
+\end_inset
+
+ of the speaker cone is a function of the speaker velocity 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The example presented here includes measured data for the first three nonlineart
+ies in a particular speaker driver unit.
+\end_layout
+
+\begin_layout Standard
+The files included in this example are
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+SpeakerSubsystemLibrary_1_0_0.slx
+\family default
+ - A Simscape subsystem library containing two subsystem models.
+ One is a simple linear speaker model.
+ The second is a nonlinear model that includes hte four nonlinear components
+ mentinoed above.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+Examples.slx
+\family default
+ - A Simscape model file that includes two speaker models operating in parallel.
+ One is the linear model from the library above.
+ The other is the nonlinear model from the same library.
+ Each speaker model includes a sealed enclosure on the back side and a radiation
+ impedance on the front side of the cone.
+ There are also blocks that calculate the far field radiated pressure from
+ each speaker.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+vars.mat
+\family default
+ - A mast file that contains variables used to provide values to the speaker
+ components.
+ The particular speaker is one the author is familiar with.
+ It is a 3 1/2 in.
+ speaker with a rated maximum power output of 25 W.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+The reader is encouraged to experiment with these models.
+ With small drive voltage signals (1 V or less) the output of the linear
+ and nonlinear models is similar enough that you need to do frequency analysis
+ of the output signals to see the differences.
+ For very large drive voltage (say 15 V peak) the differences are large
+ enough to be clearly visible in the time waveforms.
+\end_layout
+
+\end_body
+\end_document
